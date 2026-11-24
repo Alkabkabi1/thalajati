@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google" content="notranslate" />
+    <title>بكرة نطبخ إيش؟ — ثلاجتي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <a class="back" href="index.html">← الرئيسية</a>
+      <header class="fade-up">
+        <p class="kicker leaf">اقتراح بكرة</p>
+        <h2 class="page-title">بكرة نطبخ إيش؟</h2>
+      </header>
+
+      <div class="random-wrap fade-up">
+        <div class="random-hero">
+          <p class="label">أكلة اليوم المقترحة</p>
+          <h3 id="randomName">...</h3>
+          <p class="lead" id="randomMeta"></p>
+          <p class="lead hidden" id="recycledNote">خلصنا دورة الأسبوع — رجعنا ندور من الأول بهدوء.</p>
+        </div>
+        <div id="randomCard"></div>
+      </div>
+    </main>
+
+    <div class="sticky">
+      <div class="sticky-inner">
+        <a class="btn btn-secondary" href="index.html">الرئيسية</a>
+        <button type="button" class="btn btn-primary" id="againBtn">غيرها</button>
+      </div>
+    </div>
+
+    <script src="js/recipes.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/random.js"></script>
+  </body>
+</html>

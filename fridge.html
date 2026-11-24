@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google" content="notranslate" />
+    <title>من ثلاجتي — ثلاجتي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <a class="back" id="backLink" href="index.html">← الرئيسية</a>
+
+      <div class="progress-meta">
+        <span id="stepLabel">خطوة 1 من 3 — كم نفر؟</span>
+        <span id="stepPct">33%</span>
+      </div>
+      <div class="progress" aria-hidden="true"><span id="progressBar" style="width: 33%"></span></div>
+
+      <section id="step1" class="fade-up">
+        <h2 class="page-title">كم نفر بتاكلون؟</h2>
+        <p class="lead">عشان الاقتراح يناسب الكمية — مو لازم رقم دقيق.</p>
+        <div class="panel">
+          <div class="count-row">
+            <span>بالغين</span>
+            <div class="count-controls">
+              <button type="button" class="round-btn" data-count="adults" data-delta="-1" aria-label="إنقاص بالغين">−</button>
+              <span class="count-value" id="adultsValue">2</span>
+              <button type="button" class="round-btn" data-count="adults" data-delta="1" aria-label="زيادة بالغين">+</button>
+            </div>
+          </div>
+          <div class="count-row">
+            <span>أطفال</span>
+            <div class="count-controls">
+              <button type="button" class="round-btn" data-count="kids" data-delta="-1" aria-label="إنقاص أطفال">−</button>
+              <span class="count-value" id="kidsValue">0</span>
+              <button type="button" class="round-btn" data-count="kids" data-delta="1" aria-label="زيادة أطفال">+</button>
+            </div>
+          </div>
+          <p class="warn hidden" id="peopleWarn">اختاري على الأقل شخص واحد عشان نكمّل.</p>
+        </div>
+      </section>
+
+      <section id="step2" class="fade-up hidden">
+        <h2 class="page-title">في شيء ما تاكلونه؟</h2>
+        <p class="lead">اختياري — نتجنّب الوصفات اللي فيها هالمكونات. تقدرين تتخطّين.</p>
+        <div class="chips" id="allergenChips"></div>
+        <p class="status-line" id="allergenStatus">ما في ممنوعات؟ تمام، كمّلي.</p>
+      </section>
+
+      <section id="step3" class="fade-up hidden">
+        <h2 class="page-title">وش عندك تقريبًا؟</h2>
+        <p class="lead">اختاري اللي متأكد منه — كل ما زدتِ، صارت الاقتراحات أدق.</p>
+        <button type="button" class="empty-fridge" id="emptyFridgeBtn">ما عندي شي بالثلاجة</button>
+        <div class="chips" id="ingredientChips" style="margin-top: 0.75rem"></div>
+        <p class="status-line" id="ingredientStatus">اختاري مكونات، أو «ما عندي شي بالثلاجة»</p>
+      </section>
+    </main>
+
+    <div class="sticky">
+      <div class="sticky-inner">
+        <button type="button" class="btn btn-primary" id="nextBtn">متابعة</button>
+      </div>
+    </div>
+
+    <script src="js/recipes.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/fridge.js"></script>
+  </body>
+</html>
