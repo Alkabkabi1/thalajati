@@ -14,17 +14,32 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <main class="shell">
+    <main class="shell shell-wide">
       <a class="back" href="fridge.html">← تعديل اختياراتي</a>
       <header class="fade-up">
-        <p class="kicker">نتيجة ثلاجتك</p>
-        <h2 class="page-title" id="resultsTitle">هذي أنسب أكلات الحين</h2>
-        <p class="lead" id="resultsLead"></p>
+        <h2 class="page-title" id="resultsTitle">هذي قائمتك حسب النوع</h2>
       </header>
 
+      <section id="filterPanel" class="filter-panel fade-up">
+        <button type="button" class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filterBody">
+          <span class="filter-toggle-label">
+            <span class="filter-dot" id="filterDot" hidden aria-hidden="true"></span>
+            <span class="filter-heading">فلاتر <span class="filter-summary" id="filterSummary"></span></span>
+          </span>
+          <span class="filter-chevron" aria-hidden="true">▾</span>
+        </button>
+        <div class="filter-body" id="filterBody" hidden>
+          <p class="filter-label">الأقسام</p>
+          <div class="chips" id="categoryFilterChips"></div>
+          <p class="filter-label">المطابخ <span class="filter-hint">(فاضي = الكل)</span></p>
+          <div class="chips" id="cuisineFilterChips"></div>
+        </div>
+      </section>
+
       <div id="emptyState" class="empty-state hidden fade-up">
-        <p>المكونات اللي اخترتيها قليلة أو ما تغطي وصفاتنا الحالية.</p>
-        <p class="lead">جرّبي تضيفين مكونين–ثلاثة، أو خذي اقتراح عشوائي.</p>
+        <p>ما لقينا تطابق قوي بهالفلاتر أو المكونات.</p>
+        <p class="lead">جرّبي توسّعين الأقسام، أو ابدئي بمكونات شائعة:</p>
+        <div class="chips suggest-chips" id="suggestChips" style="justify-content: center; margin-top: 0.75rem"></div>
         <div class="stack" style="margin-top: 1.25rem">
           <a class="btn btn-primary" href="fridge.html">أعدّل المكونات</a>
           <a class="btn btn-secondary" href="random.html">بكرة نطبخ إيش؟</a>
@@ -40,7 +55,7 @@
     </main>
 
     <div class="sticky">
-      <div class="sticky-inner">
+      <div class="sticky-inner sticky-inner-wide">
         <a class="btn btn-secondary" href="index.html">الرئيسية</a>
         <a class="btn btn-primary" href="random.html">عشوائي لبكرة</a>
       </div>
