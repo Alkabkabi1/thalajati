@@ -1,10 +1,16 @@
 (function () {
   var blocked = Thalajati.loadBlocked();
   var card = document.getElementById("randomCard");
+  var againBtn = document.getElementById("againBtn");
 
-  function suggest() {
+  async function suggest() {
+    if (Thalajati.fetchUserRecipes) await Thalajati.fetchUserRecipes();
     var recent = Thalajati.loadRecentRandomIds();
     var result = Thalajati.pickRandomRecipe(blocked, recent);
+    if (!result.recipe) {
+      card.innerHTML = '<p class="lead">ما في وصفات رئيسية للعرض حاليًا.</p>';
+      return;
+    }
     Thalajati.pushRecentRandom(result.recipe.id);
 
     document.getElementById("randomMeta").textContent =
@@ -19,6 +25,13 @@
     Thalajati.flashRecipeSwap(card);
   }
 
-  document.getElementById("againBtn").addEventListener("click", suggest);
+  againBtn.addEventListener("click", function () {
+    againBtn.disabled = true;
+    suggest().finally(function () {
+      againBtn.disabled = false;
+    });
+  });
+
+  if (Thalajati.fetchUserRecipes) Thalajati.fetchUserRecipes();
   suggest();
 })();

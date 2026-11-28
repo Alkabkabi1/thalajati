@@ -37,13 +37,18 @@
         <a class="btn btn-secondary" href="random.html">بكرة نطبخ إيش؟</a>
       </div>
 
+      <a class="tertiary-link" href="add-recipe.html">أضيفي وصفتي</a>
       <p class="hint">٣ أسئلة قصيرة · بدون حساب · وصفات بيتية مع صور</p>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
     <script src="js/recipes.js"></script>
+    <script src="js/user-recipes.js"></script>
     <script src="js/ui.js"></script>
     <script>
       (function () {
+        Thalajati.fetchUserRecipes();
         var preview = document.getElementById("homePreview");
         var sample =
           Thalajati.RECIPES.find(function (r) {

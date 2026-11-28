@@ -1000,3 +1000,86 @@ h2.page-title {
 .fade-up {
   animation: fade-up 0.45s ease-out both;
 }
+
+.tertiary-link {
+  display: block;
+  margin-top: 0.85rem;
+  text-align: center;
+  color: var(--leaf);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.tertiary-link:hover {
+  text-decoration: underline;
+}
+
+.add-form {
+  margin-top: 1.25rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 7rem;
+  line-height: 1.6;
+}
+
+.field-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.form-status {
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.form-status.is-error {
+  background: rgba(180, 35, 24, 0.08);
+  color: var(--danger);
+}
+
+.form-status.is-ok {
+  background: rgba(47, 111, 78, 0.1);
+  color: var(--leaf-dark);
+}
+
+@media (max-width: 420px) {
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+}

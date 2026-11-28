@@ -1280,8 +1280,9 @@ Thalajati.matchRecipes = function (available, blocked, peopleCount, categories, 
   available.forEach(function (k) {
     availableSet[k] = true;
   });
+  var catalog = Thalajati.getAllRecipes ? Thalajati.getAllRecipes() : Thalajati.RECIPES;
   var pool = Thalajati.filterByMenuPrefs(
-    Thalajati.filterByAllergens(Thalajati.RECIPES, blocked),
+    Thalajati.filterByAllergens(catalog, blocked),
     categories,
     cuisines,
   );
@@ -1299,8 +1300,9 @@ Thalajati.matchRecipes = function (available, blocked, peopleCount, categories, 
 };
 
 Thalajati.suggestForEmptyFridge = function (blocked, peopleCount, categories, cuisines) {
+  var catalog = Thalajati.getAllRecipes ? Thalajati.getAllRecipes() : Thalajati.RECIPES;
   return Thalajati.filterByMenuPrefs(
-    Thalajati.filterByAllergens(Thalajati.RECIPES, blocked),
+    Thalajati.filterByAllergens(catalog, blocked),
     categories,
     cuisines,
   )
@@ -1349,7 +1351,8 @@ Thalajati.groupMatchesByCategory = function (matches, perCategory) {
 };
 
 Thalajati.pickRandomRecipe = function (blocked, recentIds) {
-  var pool = Thalajati.filterByAllergens(Thalajati.RECIPES, blocked).filter(function (r) {
+  var catalog = Thalajati.getAllRecipes ? Thalajati.getAllRecipes() : Thalajati.RECIPES;
+  var pool = Thalajati.filterByAllergens(catalog, blocked).filter(function (r) {
     return (r.category || "main") === "main";
   });
   var fresh = pool.filter(function (r) {

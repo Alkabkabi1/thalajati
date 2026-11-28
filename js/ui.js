@@ -51,14 +51,18 @@ Thalajati.renderRecipeCard = function (match, options) {
   var cuisineBit = recipe.cuisine ? " · " + recipe.cuisine : "";
   var tagsBit = recipe.tags && recipe.tags.length ? " · " + recipe.tags.join(" · ") : "";
   var fallbackLetter = (recipe.name || "?").charAt(0);
-  var media =
-    '<div class="recipe-media"><img src="' +
-    recipe.image +
-    '" alt="' +
-    recipe.name +
-    '" loading="lazy" data-fallback="' +
-    fallbackLetter +
-    '"></div>';
+  var imageSrc = recipe.image || "";
+  var media = imageSrc
+    ? '<div class="recipe-media"><img src="' +
+      imageSrc +
+      '" alt="' +
+      recipe.name +
+      '" loading="lazy" data-fallback="' +
+      fallbackLetter +
+      '"></div>'
+    : '<div class="recipe-media is-fallback"><span class="recipe-icon is-fallback" aria-hidden="true">' +
+      fallbackLetter +
+      "</span></div>";
 
   return (
     '<article class="recipe-card' +

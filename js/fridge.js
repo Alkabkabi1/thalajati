@@ -148,7 +148,8 @@
     syncEarlyResultsBtn();
   }
 
-  function finishFridge() {
+  async function finishFridge() {
+    if (Thalajati.fetchUserRecipes) await Thalajati.fetchUserRecipes();
     var count = Math.max(people(), 1);
     var selectedCategories = categories.slice();
     var selectedCuisines = cuisines.slice();
@@ -238,5 +239,6 @@
     });
   }
 
+  if (Thalajati.fetchUserRecipes) Thalajati.fetchUserRecipes();
   renderAll();
 })();

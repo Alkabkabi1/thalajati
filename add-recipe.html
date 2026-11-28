@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google" content="notranslate" />
+    <title>أضيفي وصفتي — ثلاجتي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <a class="back" href="index.html">← الرئيسية</a>
+      <header class="fade-up">
+        <p class="kicker leaf">تغذية القرار</p>
+        <h2 class="page-title">أضيفي وصفتي</h2>
+        <p class="lead">
+          وصفتك تدخل نفس محرك الثلاجة والعشوائي — اختاري مكونات من القائمة عشان التطابق يشتغل صح.
+        </p>
+      </header>
+
+      <form id="addRecipeForm" class="add-form fade-up panel" novalidate>
+        <label class="field">
+          <span>اسم الوصفة</span>
+          <input type="text" id="recipeName" name="name" maxlength="80" required placeholder="مثال: مقلوبة بيتنا" />
+        </label>
+
+        <div class="field-row">
+          <label class="field">
+            <span>القسم</span>
+            <select id="recipeCategory" name="category"></select>
+          </label>
+          <label class="field">
+            <span>المطبخ</span>
+            <select id="recipeCuisine" name="cuisine"></select>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>الوقت التقريبي (دقيقة)</span>
+          <input type="number" id="recipeMinutes" name="minutes" min="5" max="300" value="30" />
+        </label>
+
+        <div class="field">
+          <span>المكونات</span>
+          <p class="field-hint">نفس مفاتيح الثلاجة — اختاري اللي يدخل بالوصفة.</p>
+          <div class="chips" id="ingredientChips"></div>
+        </div>
+
+        <label class="field">
+          <span>الخطوات (اختياري — سطر لكل خطوة)</span>
+          <textarea id="recipeSteps" name="steps" rows="5" placeholder="اقلبي البصل…&#10;أضيفي الرز…"></textarea>
+        </label>
+
+        <p id="formStatus" class="form-status hidden" role="status"></p>
+
+        <button type="submit" class="btn btn-primary" id="saveRecipeBtn">حفظ الوصفة</button>
+        <a class="btn btn-secondary" href="fridge.html">جرّبي من ثلاجتي</a>
+      </form>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/recipes.js"></script>
+    <script src="js/user-recipes.js"></script>
+    <script src="js/add-recipe.js"></script>
+  </body>
+</html>
